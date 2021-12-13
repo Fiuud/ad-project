@@ -1,3 +1,4 @@
+
 <template> 
 	<v-container fluid fill-height>
 		<v-layout align-center justify-center> 
@@ -78,7 +79,7 @@ export default {
 				email: this.email,
 				password: this.password
 			}
-			console.log(user)
+			this.$store.dispatch('registerUser', user)
 		}
 	}
 } 
