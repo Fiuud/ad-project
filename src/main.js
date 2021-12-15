@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App.vue'
@@ -18,18 +19,33 @@ new Vue({
   store,
   created(){
     const firebaseConfig = {
-      apiKey: "AIzaSyCWvE-V3cEK1NCxvAYBhmnZTKhz1xsIquE",
-      authDomain: "ad-project-c64d8.firebaseapp.com",
-      projectId: "ad-project-c64d8",
-      storageBucket: "ad-project-c64d8.appspot.com",
-      messagingSenderId: "317292146954",
-      appId: "1:317292146954:web:0781e51f8f21a810c94af3"
+      apiKey: "AIzaSyAKKN9Zkw9aL_1I1pXNj476cQBkdZ2bpmk",
+      authDomain: "ad-project-d4221.firebaseapp.com",
+      projectId: "ad-project-d4221",
+      storageBucket: "ad-project-d4221.appspot.com",
+      messagingSenderId: "571208638014",
+      appId: "1:571208638014:web:2938a9f69c4c6e05b8fb6f",
+      measurementId: "G-NETTN1H875"
+  
     };
     
   // Initialize Firebase
   fb.initializeApp(firebaseConfig);
   fb.analytics();
+  //fb.auth().onAuthStateChanged(user => {
+    //здесь можно обновить пользователя в store
+    //console.log(user)
+  //});
+  fb.auth().onAuthStateChanged(user => {
+    if (user) {
+      console.log(`Смотрим что мы получили: ${user.uid}`)
+      this.$store.dispatch('autoLoginUser', user.uid)
+    }
+ })
+
   //const app = initializeApp(firebaseConfig);
   //getAnalytics(app);
+
+  this.$store.dispatch('fetchAds')
 }
 }).$mount('#app')
