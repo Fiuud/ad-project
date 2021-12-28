@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App.vue'
@@ -8,8 +7,10 @@ import store from './store'
 import fb from 'firebase'
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
+import BuyModalComponent from '@/components/Shared/BuyModal'
 
 Vue.use(Router)
+Vue.component('app-vue-modal',BuyModalComponent)
 Vue.config.productionTip = false
 
 new Vue({
@@ -21,6 +22,7 @@ new Vue({
     const firebaseConfig = {
       apiKey: "AIzaSyAKKN9Zkw9aL_1I1pXNj476cQBkdZ2bpmk",
       authDomain: "ad-project-d4221.firebaseapp.com",
+      databaseURL: "https://ad-project-d4221-default-rtdb.firebaseio.com",
       projectId: "ad-project-d4221",
       storageBucket: "ad-project-d4221.appspot.com",
       messagingSenderId: "571208638014",
