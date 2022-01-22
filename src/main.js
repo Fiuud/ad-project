@@ -9,6 +9,7 @@ import fb from 'firebase'
 //import { getAnalytics } from "firebase/analytics";
 import BuyModalComponent from '@/components/Shared/BuyModal'
 
+
 Vue.use(Router)
 Vue.component('app-vue-modal',BuyModalComponent)
 Vue.config.productionTip = false
